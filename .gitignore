@@ -1,3 +1,6 @@
 Robot Recursos/chromedriver_win32.zip
 Robot Recursos/geckodriver-v0.29.0-win64.zip
 Robot Recursos/python-3.9.2-amd64.exe
+SuiteTest/log/log.html
+SuiteTest/log/output.xml
+SuiteTest/log/report.html
