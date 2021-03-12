@@ -9,13 +9,13 @@ Test Setup          Abrir navegador
 Test Teardown       Fechar navegador
 
 ***Test Cases***
-Test Case #1: Find valiable product
+Test Case #1: Search for valiable product
     Acessar a página home do site
     Digitar o nome do produto "Blouse" no campo de pesquisa
     Clicar no botão pesquisar
     Conferir se o procuto "Blouse" foi listado no site
 
-Test Case #2: Find unvaliable product
+Test Case #2: Search for unvaliable product
     Acessar a página home do site
     Digitar o nome do produto "ItemNãoExistente" no campo de pesquisa
     Clicar no botão pesquisar
