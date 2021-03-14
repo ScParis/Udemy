@@ -14,3 +14,4 @@ SuiteTest/log/selenium-screenshot-2.png
 .idea/inspectionProfiles/profiles_settings.xml
 .vs/VSWorkspaceState.json
 .idea/*
+log/*
