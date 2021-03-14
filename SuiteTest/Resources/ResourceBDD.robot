@@ -4,7 +4,7 @@ Library             SeleniumLibrary
 
 ***Variables***
 ${URL}              http://automationpractice.com/
-${BROWSER}          firefox
+${BROWSER}          chrome
 #${PRODUTO}          Blouse
 
 ***Keywords***
