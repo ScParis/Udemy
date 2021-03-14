@@ -4,7 +4,7 @@ Library             SeleniumLibrary
 
 ***Variables***
 ${URL}              http://automationpractice.com/
-${BROWSER}          firefox
+${BROWSER}          chrome
 #${PRODUTO}          Blouse
 
 ***Keywords***
@@ -16,7 +16,7 @@ Abrir navegador
 Fechar navegador
     Close Browser
 
-### Passo-a-passp
+### Açoes do teste  ###
 
 Acessar a página home do site
     Go To                   ${URL}
@@ -28,6 +28,8 @@ Digitar o nome do produto "${PRODUTO}" no campo de pesquisa
 Clicar no botão pesquisar
     Click Element           name=submit_search
 
+
+### Conferência ###
 Conferir se o procuto "${PRODUTO}" foi listado no site
     Wait Until Element Is Visible           css=#center_column > h1
     Title Should Be                         Search - My Store
@@ -37,3 +39,7 @@ Conferir se o procuto "${PRODUTO}" foi listado no site
 Conferir mensagem de erro "${MENSAGEM_ALERTA}"
     Wait Until Element Is Visible           xpath=//p[@class="alert alert-warning"]
     Element Text Should Be                  xpath=//p[@class="alert alert-warning"]         ${MENSAGEM_ALERTA}
+
+
+Passar o mouse por cima da categoria "Women" no menu principal superior de categorias
+    Mouse Down On Link                      xpath=//a[@title="Women"]     
