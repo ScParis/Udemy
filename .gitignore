@@ -6,3 +6,10 @@ SuiteTest/log/output.xml
 SuiteTest/log/report.html
 SuiteTest/log/selenium-screenshot-1.png
 SuiteTest/log/selenium-screenshot-2.png
+.idea/misc.xml
+.idea/modules.xml
+.idea/Robot Framework.iml
+.idea/vcs.xml
+.vs/slnx.sqlite
+.idea/inspectionProfiles/profiles_settings.xml
+.vs/VSWorkspaceState.json
