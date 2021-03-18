@@ -4,7 +4,7 @@ Library             SeleniumLibrary
 
 ***Variables***
 ${URL}              http://automationpractice.com/
-${BROWSER}          chrome
+${BROWSER}          firefox
 #${PRODUTO}          Blouse
 
 ***Keywords***
@@ -42,4 +42,8 @@ Conferir mensagem de erro "${MENSAGEM_ALERTA}"
 
 
 Passar o mouse por cima da categoria "Women" no menu principal superior de categorias
+<<<<<<< HEAD
     Mouse Over                      xpath=//a[@title="Women"]     
+=======
+    Mouse Over              xpath=//a[@title="Women"]
+>>>>>>> 31116d8643cd43d717cc0af946c8e436231246a9
