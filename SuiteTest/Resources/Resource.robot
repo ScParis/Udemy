@@ -42,4 +42,4 @@ Conferir mensagem de erro "${MENSAGEM_ALERTA}"
 
 
 Passar o mouse por cima da categoria "Women" no menu principal superior de categorias
-    Mouse Down On Link                      xpath=//a[@title="Women"]     
+    Mouse Over                      xpath=//a[@title="Women"]     

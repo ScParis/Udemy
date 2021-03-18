@@ -9,15 +9,13 @@ Test Setup          Abrir navegador
 Test Teardown       Fechar navegador
 
 ***Test Cases***
-Test Case #1: Pesquisar Produtos
-Existentes
+Test Case #1: Pesquisar Produtos Existentes
     Acessar a página home do site
     Digitar o nome do produto "Blouse" no campo de pesquisa
     Clicar no botão pesquisar
     Conferir se o procuto "Blouse" foi listado no site
 
-Test Case #2: Pesquisar Produtos não
-Existentes
+Test Case #2: Pesquisar Produtos não Existentes
     Acessar a página home do site
     Digitar o nome do produto "ItemNãoExistente" no campo de pesquisa
     Clicar no botão pesquisar
