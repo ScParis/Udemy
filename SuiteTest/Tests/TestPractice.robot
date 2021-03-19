@@ -8,7 +8,7 @@ Test Setup          Abrir navegador
 #Suite Teardown      Fechar navegador
 Test Teardown       Fechar navegador
 
-Test Teardown       Take Screenshot                 fullPage=true
+#Test Teardown       Take Screenshot                 fullPage=true
 
 ***Test Cases***
 #Test Case #1: Pesquisar Produtos Existentes
