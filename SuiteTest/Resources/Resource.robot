@@ -52,14 +52,19 @@ Clicar na sub categoria "${SUB_CATEGORY}"
     Mouse Down                              xpath=//a[@title="Summer Dresses"]
 
 Clicar no botão "${AddToCart}" do produto
-    Click Element                           xpath=//a[@href="http://automationpractice.com/index.php?id_product=1&controller=product&search_query=t-shirt&results=1"]
+    Click Link                           xpath=//a[@href="http://automationpractice.com/index.php?id_product=1&controller=product&search_query=t-shirt&results=1"]
     Wait Until Element Is Visible           xpath=//h1[contains(text(), "Faded Short Sleeve T-shirts")]
-    Click Element                           name=Submit
+    Click Element                              name=Submit
     Wait Until Element Is Visible           xpath=//i[@class="icon-ok"]
 
 Clicar no botão "${checkout}"
     Click Element                           xpath=//a[@href="http://automationpractice.com/index.php?controller=order"][@title="Proceed to checkout"]
     Sleep                                   10
     Wait Until Element Is Visible           xpath=//h1[contains(text(), "Shopping-cart summary")]
-    Click Element                           xpath=//a[@href="http://automationpractice.com/index.php?controller=order&step=1"]
+    Click Link                              xpath=//a[@href="http://automationpractice.com/index.php?controller=order&step=1"]
 
+Clicar no ícone carrinho de compras no menu superior direito
+    Click Link                              xpath=//a[@href="http://automationpractice.com/index.php?controller=order"][@title="View my shopping cart"]
+
+Clicar no botão de remoção de produtos ${delete} no produto do carrinho
+    Click Link                              xptah=//a[@href="http://automationpractice.com/index.php?controller=cart&delete=1&id_product=1&ipa=1&id_address_delivery=0&token=e817bb0705dd58da8db074c69f729fd8"][@title="Delete"]
