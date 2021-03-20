@@ -58,7 +58,7 @@ Clicar no botão "${AddToCart}" do produto
     Wait Until Element Is Visible           xpath=//i[@class="icon-ok"]
 
 Clicar no botão "${checkout}"
-    Click Element                           xpath=//a[@href="http://automationpractice.com/index.php?controller=order"]
+    Click Element                           xpath=//a[@href="http://automationpractice.com/index.php?controller=order"][@title="Proceed to checkout"]
     Sleep                                   10
     Wait Until Element Is Visible           xpath=//h1[contains(text(), "Shopping-cart summary")]
     Click Element                           xpath=//a[@href="http://automationpractice.com/index.php?controller=order&step=1"]
