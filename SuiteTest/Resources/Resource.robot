@@ -22,15 +22,17 @@ Fechar navegador
 ### Açoes do teste  ###
 
 Acessar a página home do site
-    Go To                   ${URL}
-    Title Should Be         My Store
+    Go To                                   ${URL}
+    Title Should Be                         My Store
+    Sleep                                   3
 
 Digitar o nome do produto "${PRODUTO}" no campo de pesquisa
-    Input Text              id=search_query_top      ${PRODUTO}
+    Input Text                              id=search_query_top      ${PRODUTO}
+    Sleep                                   3
 
 Clicar no botão pesquisar
-    Click Element           name=submit_search
-
+    Click Element                           name=submit_search
+    Wait Until Element Is Visible           xpath=//span[contains(text(), "Search")]/..//i[@class="icon-home"]
 
 ### Conferência ###
 Conferir se o procuto "${PRODUTO}" foi listado no site
@@ -52,9 +54,9 @@ Clicar na sub categoria "${SUB_CATEGORY}"
     Mouse Down                              xpath=//a[@title="Summer Dresses"]
 
 Clicar no botão "${AddToCart}" do produto
-    Click Link                           xpath=//a[@href="http://automationpractice.com/index.php?id_product=1&controller=product&search_query=t-shirt&results=1"]
+    Click Link                              xpath=//a[@href="http://automationpractice.com/index.php?id_product=1&controller=product&search_query=t-shirt&results=1"]
     Wait Until Element Is Visible           xpath=//h1[contains(text(), "Faded Short Sleeve T-shirts")]
-    Click Element                              name=Submit
+    Click Element                           name=Submit
     Wait Until Element Is Visible           xpath=//i[@class="icon-ok"]
 
 Clicar no botão "${checkout}"
@@ -66,5 +68,23 @@ Clicar no botão "${checkout}"
 Clicar no ícone carrinho de compras no menu superior direito
     Click Link                              xpath=//a[@href="http://automationpractice.com/index.php?controller=order"][@title="View my shopping cart"]
 
-Clicar no botão de remoção de produtos ${delete} no produto do carrinho
-    Click Link                              xptah=//a[@href="http://automationpractice.com/index.php?controller=cart&delete=1&id_product=1&ipa=1&id_address_delivery=0&token=e817bb0705dd58da8db074c69f729fd8"][@title="Delete"]
+#Clicar no botão de remoção de produtos ${delete} no produto do carrinho
+#    Click Link                              xptah=//a[@href="http://automationpractice.com/index.php?controller=cart&delete=1&id_product=1&ipa=1&id_address_delivery=0&token=e817bb0705dd58da8db074c69f729fd8"][@title="Delete"]
+
+O sistema deve exibir a mensagem "${shopping_cart_empty}"
+    Element Text Should Be                  xpath=//p[@class="alert alert-warning"]         ${shopping_cart_empty}
+
+
+Clicar no botão superior direito “${Sign_in}”
+    Click Element               xpath=//a[@href="http://automationpractice.com/index.php?controller=my-account"][@title="Log in to your customer account"]
+
+Inserir um e-mail válido
+    Input Text              
+
+Clicar no botão "Create na account"
+
+
+Preencher os campos obrigatórios
+
+
+Clicar em "Register"para finalizar o cadastro
