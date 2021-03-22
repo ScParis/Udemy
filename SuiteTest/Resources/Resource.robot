@@ -5,10 +5,16 @@ Library             SeleniumLibrary
 
 ***Variables***
 
-${URL}              http://automationpractice.com/
-${BROWSER}          chrome
-#${PRODUTO}          Blouse
-
+${URL}                          http://automationpractice.com/
+#${BROWSER}                      Chromium
+${BROWSER}                      chrome
+#${PRODUTO}                      Blouse
+${EMAIL}                        teste@robot.br
+${customer_firstname}           Robot
+${customer_lastname}            Framework
+${passwd}                       rob123frame
+${address1}                     Lost and Alone, 22
+${city}                         Somewhare
 
 ***Keywords***
 #Setup e Teardown
@@ -24,11 +30,11 @@ Fechar navegador
 Acessar a página home do site
     Go To                                   ${URL}
     Title Should Be                         My Store
-    Sleep                                   3
+#    Sleep                                   3
 
 Digitar o nome do produto "${PRODUTO}" no campo de pesquisa
     Input Text                              id=search_query_top      ${PRODUTO}
-    Sleep                                   3
+#    Sleep                                   3
 
 Clicar no botão pesquisar
     Click Element                           name=submit_search
@@ -68,23 +74,30 @@ Clicar no botão "${checkout}"
 Clicar no ícone carrinho de compras no menu superior direito
     Click Link                              xpath=//a[@href="http://automationpractice.com/index.php?controller=order"][@title="View my shopping cart"]
 
-#Clicar no botão de remoção de produtos ${delete} no produto do carrinho
-#    Click Link                              xptah=//a[@href="http://automationpractice.com/index.php?controller=cart&delete=1&id_product=1&ipa=1&id_address_delivery=0&token=e817bb0705dd58da8db074c69f729fd8"][@title="Delete"]
 
 O sistema deve exibir a mensagem "${shopping_cart_empty}"
     Element Text Should Be                  xpath=//p[@class="alert alert-warning"]         ${shopping_cart_empty}
 
 
 Clicar no botão superior direito “${Sign_in}”
-    Click Element               xpath=//a[@href="http://automationpractice.com/index.php?controller=my-account"][@title="Log in to your customer account"]
+    Click Element                           xpath=//a[@href="http://automationpractice.com/index.php?controller=my-account"][@title="Log in to your customer account"]
+    Wait Until Element Is Visible           xpath=//h3[contains(text(), "Create an account")]
 
 Inserir um e-mail válido
-    Input Text              
+    Input Text                              xpath=//input[@name="email_create"]           ${EMAIL}
 
 Clicar no botão "Create na account"
-
+   Click Element                            xpath=//button[@name="SubmitCreate"]
+   Wait Until Element Is Visible            xpath=//h3[contains(text(), "Your personal information")]
 
 Preencher os campos obrigatórios
+    Input Text                              xpath=//input[@name="customer_firstname"]           ${customer_firstname}
+    Input Text                              xpath=//input[@name="customer_lastname"]            ${customer_lastname}
+    Input Password                          xpath=//input[@name="passwd"]                       ${passwd}
 
+#Your Address
+
+    Input Text                              xpath=//input[@name="address1"]                     ${address1}
+    Input Text                              xpath=//input[@name="city"]                         ${city}
 
 Clicar em "Register"para finalizar o cadastro
