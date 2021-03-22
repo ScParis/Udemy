@@ -1,7 +1,7 @@
 ***Settings***
 Documentation       Resources que será utilizado nas 2 suites de teste;
 Library             SeleniumLibrary
-Library    FakerLibrary    locale=en_US
+Library             FakerLibrary    locale=en_US
 
 
 ***Variables***
@@ -90,19 +90,19 @@ Preencher os campos obrigatórios
     Log    ${customer_firstname}
     Set Suite Variable    ${customer_firstname}
     Input Text                              xpath=//input[@name="customer_firstname"]           ${customer_firstname}
-    Sleep                   5
+
 
     ${customer_lastname} =  Last Name  
     Log    ${customer_lastname}
     Set Suite Variable    ${customer_lastname}
     Input Text                              xpath=//input[@name="customer_lastname"]            ${customer_lastname}
-    Sleep                   5
+
     
     ${passwd} =   Password           10            #special_chars=True
     Log    ${passwd}
     Set Suite Variable    ${passwd}
     Input Password                          xpath=//input[@name="passwd"]                       ${passwd}
-    Sleep                   5
+
 
 #Your Address
 
@@ -110,28 +110,28 @@ Preencher os campos obrigatórios
     Log    ${address1}
     Set Suite Variable    ${address1}
     Input Text                              xpath=//input[@name="address1"]                     ${address1}
-    Sleep                   5
+
 
     ${city} =  City  
     Log    ${city}
     Set Suite Variable    ${city}
     Input Text                              xpath=//input[@name="city"]                         ${city}
-    Sleep                   5
+
 
     Click Element                           xpath=//select[@name="id_state"]//option[@value="1"]
-    Sleep                   5
+
 
     ${postcode} =   Postcode
     Log    ${postcode}
     Set Suite Variable    ${postcode}
     Input Text                              xpath=//input[@name="postcode"]                     ${postcode}
-    Sleep                   5
+
 
     ${phone_mobile} =  Phone Number  
     Log    ${phone_mobile}
     Set Suite Variable    ${phone_mobile}
     Input Text                              xpath=//input[@name="phone_mobile"]                 ${phone_mobile}
-    Sleep                   5
+
 
 Clicar em "${Register}" para finalizar o cadastro
     Click Element                           xpath=//button[@name="submitAccount"]

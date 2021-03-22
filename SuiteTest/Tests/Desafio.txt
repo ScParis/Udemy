@@ -1,0 +1,10 @@
+Perguntas dessa tarefa
+
+1.Como você automatizou a ação "Passar o mouse por cima da categoria "Women" no menu principal superior de categorias." do caso de teste nº 03?
+    - Foi utilizada a keyword 'Mouse Over' utilizando o 'Title' como locator;
+
+2.Como você fez para não repetir o e-mail informado na ação "Informar um e-mail válido" do caso de teste nº 06?
+    - Implemnetada a biblioteca 'FakerLibrary', para o preenchimento do fomulário de cadsatro de nova conta. 
+
+3.Como você fez para conseguir selecionar uma opção na lista de Estados (State) do cadastro de um novo cliente, do caso de teste nº 06?
+    - Utlizada keyword "Click Element" passando valor fixo para seleção da opção;
