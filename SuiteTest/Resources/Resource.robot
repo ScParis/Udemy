@@ -1,25 +1,26 @@
 ***Settings***
 Documentation       Resources que será utilizado nas 2 suites de teste;
 Library             SeleniumLibrary
-#Library             Browser
+
 
 ***Variables***
 
-${URL}                          http://automationpractice.com/
-#${BROWSER}                      Chromium
-${BROWSER}                      chrome
-#${PRODUTO}                      Blouse
-${EMAIL}                        teste@robot.br
+${url}                          http://automationpractice.com/
+${browser}                      chrome
+${email}                        robotemail1@robot.br
 ${customer_firstname}           Robot
 ${customer_lastname}            Framework
 ${passwd}                       rob123frame
 ${address1}                     Lost and Alone, 22
 ${city}                         Somewhare
+${postcode}                     00000
+${phone_mobile}                 047 999 3595
 
 ***Keywords***
+
 #Setup e Teardown
 Abrir navegador
-    Open Browser            about:blank          ${BROWSER}
+    Open Browser            about:blank          ${browser}
 
 
 Fechar navegador
@@ -28,34 +29,31 @@ Fechar navegador
 ### Açoes do teste  ###
 
 Acessar a página home do site
-    Go To                                   ${URL}
+    Go To                                   ${url}
     Title Should Be                         My Store
-#    Sleep                                   3
 
-Digitar o nome do produto "${PRODUTO}" no campo de pesquisa
-    Input Text                              id=search_query_top      ${PRODUTO}
-#    Sleep                                   3
+Digitar o nome do produto "${produto}" no campo de pesquisa
+    Input Text                              id=search_query_top      ${produto}
 
 Clicar no botão pesquisar
     Click Element                           name=submit_search
     Wait Until Element Is Visible           xpath=//span[contains(text(), "Search")]/..//i[@class="icon-home"]
 
 ### Conferência ###
-Conferir se o procuto "${PRODUTO}" foi listado no site
+Conferir se o procuto "${produto}" foi listado no site
     Wait Until Element Is Visible           css=#center_column > h1
     Title Should Be                         Search - My Store
     Page Should Contain Image               xpath=//img[@src="http://automationpractice.com/img/p/7/7-home_default.jpg"]
     Page Should Contain Link                xpath=//*[@id="center_column"]//a[@class="product-name"][contains(text(), "Blouse")]
 
-Conferir mensagem de erro "${MENSAGEM_ALERTA}"
+Conferir mensagem de erro "${mensagem_alerta}"
     Wait Until Element Is Visible           xpath=//p[@class="alert alert-warning"]
-    Element Text Should Be                  xpath=//p[@class="alert alert-warning"]         ${MENSAGEM_ALERTA}
-
+    Element Text Should Be                  xpath=//p[@class="alert alert-warning"]         ${mensagem_alerta}
 
 Passar o mouse por cima da categoria "Women" no menu principal superior de categorias
     Mouse Over                              xpath=//a[@title="Women"]
 
-Clicar na sub categoria "${SUB_CATEGORY}"
+Clicar na sub categoria "${sub_category}"
     Mouse Down                              xpath=//a[@title="Women"]
     Mouse Down                              xpath=//a[@title="Summer Dresses"]
 
@@ -67,7 +65,6 @@ Clicar no botão "${AddToCart}" do produto
 
 Clicar no botão "${checkout}"
     Click Element                           xpath=//a[@href="http://automationpractice.com/index.php?controller=order"][@title="Proceed to checkout"]
-    Sleep                                   10
     Wait Until Element Is Visible           xpath=//h1[contains(text(), "Shopping-cart summary")]
     Click Link                              xpath=//a[@href="http://automationpractice.com/index.php?controller=order&step=1"]
 
@@ -82,11 +79,12 @@ O sistema deve exibir a mensagem "${shopping_cart_empty}"
 Clicar no botão superior direito “${Sign_in}”
     Click Element                           xpath=//a[@href="http://automationpractice.com/index.php?controller=my-account"][@title="Log in to your customer account"]
     Wait Until Element Is Visible           xpath=//h3[contains(text(), "Create an account")]
+    Wait Until Element Is Visible           xpath=//button[@name="SubmitLogin"]
 
 Inserir um e-mail válido
-    Input Text                              xpath=//input[@name="email_create"]           ${EMAIL}
+    Input Text                              xpath=//input[@name="email_create"]           ${email}
 
-Clicar no botão "Create na account"
+Clicar no botão "Create an account"
    Click Element                            xpath=//button[@name="SubmitCreate"]
    Wait Until Element Is Visible            xpath=//h3[contains(text(), "Your personal information")]
 
@@ -99,5 +97,10 @@ Preencher os campos obrigatórios
 
     Input Text                              xpath=//input[@name="address1"]                     ${address1}
     Input Text                              xpath=//input[@name="city"]                         ${city}
+    Click Element                           xpath=//select[@name="id_state"]//option[@value="1"]
+    Input Text                              xpath=//input[@name="postcode"]                     ${postcode}
+    Input Text                              xpath=//input[@name="phone_mobile"]                 ${phone_mobile}
 
-Clicar em "Register"para finalizar o cadastro
+Clicar em "${Register}" para finalizar o cadastro
+    Click Element                           xpath=//button[@name="submitAccount"]
+    Wait Until Element Is Visible           xpath=//p[contains(text(), "Welcome to your account. Here you can manage all of your personal information and orders.")]
