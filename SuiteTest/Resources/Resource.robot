@@ -1,20 +1,14 @@
 ***Settings***
 Documentation       Resources que será utilizado nas 2 suites de teste;
 Library             SeleniumLibrary
+Library    FakerLibrary    locale=en_US
 
 
 ***Variables***
 
 ${url}                          http://automationpractice.com/
 ${browser}                      chrome
-${email}                        robotemail1@robot.br
-${customer_firstname}           Robot
-${customer_lastname}            Framework
-${passwd}                       rob123frame
-${address1}                     Lost and Alone, 22
-${city}                         Somewhare
-${postcode}                     00000
-${phone_mobile}                 047 999 3595
+
 
 ***Keywords***
 
@@ -82,24 +76,62 @@ Clicar no botão superior direito “${Sign_in}”
     Wait Until Element Is Visible           xpath=//button[@name="SubmitLogin"]
 
 Inserir um e-mail válido
-    Input Text                              xpath=//input[@name="email_create"]           ${email}
+    ${Email} =  Email    
+    Log    ${Email}
+    Set Suite Variable    ${Email}
+    Input Text              xpath=//input[@name="email_create"]                 ${Email}             
 
 Clicar no botão "Create an account"
    Click Element                            xpath=//button[@name="SubmitCreate"]
    Wait Until Element Is Visible            xpath=//h3[contains(text(), "Your personal information")]
 
 Preencher os campos obrigatórios
+    ${customer_firstname} =  First Name    
+    Log    ${customer_firstname}
+    Set Suite Variable    ${customer_firstname}
     Input Text                              xpath=//input[@name="customer_firstname"]           ${customer_firstname}
+    Sleep                   5
+
+    ${customer_lastname} =  Last Name  
+    Log    ${customer_lastname}
+    Set Suite Variable    ${customer_lastname}
     Input Text                              xpath=//input[@name="customer_lastname"]            ${customer_lastname}
+    Sleep                   5
+    
+    ${passwd} =   Password           10            #special_chars=True
+    Log    ${passwd}
+    Set Suite Variable    ${passwd}
     Input Password                          xpath=//input[@name="passwd"]                       ${passwd}
+    Sleep                   5
 
 #Your Address
 
+    ${address1} =  Street Address  
+    Log    ${address1}
+    Set Suite Variable    ${address1}
     Input Text                              xpath=//input[@name="address1"]                     ${address1}
+    Sleep                   5
+
+    ${city} =  City  
+    Log    ${city}
+    Set Suite Variable    ${city}
     Input Text                              xpath=//input[@name="city"]                         ${city}
+    Sleep                   5
+
     Click Element                           xpath=//select[@name="id_state"]//option[@value="1"]
+    Sleep                   5
+
+    ${postcode} =   Postcode
+    Log    ${postcode}
+    Set Suite Variable    ${postcode}
     Input Text                              xpath=//input[@name="postcode"]                     ${postcode}
+    Sleep                   5
+
+    ${phone_mobile} =  Phone Number  
+    Log    ${phone_mobile}
+    Set Suite Variable    ${phone_mobile}
     Input Text                              xpath=//input[@name="phone_mobile"]                 ${phone_mobile}
+    Sleep                   5
 
 Clicar em "${Register}" para finalizar o cadastro
     Click Element                           xpath=//button[@name="submitAccount"]
