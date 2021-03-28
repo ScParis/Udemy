@@ -49,7 +49,7 @@ Passar o mouse por cima da categoria "Women" no menu principal superior de categ
 
 Clicar na sub categoria "${sub_category}"
     Mouse Down                              xpath=//a[@title="Women"]
-    Mouse Down                              xpath=//a[@title="Summer Dresses"]
+    Mouse Down                              xpath=//*[@id="block_top_menu"]/ul/li[1]/ul/li[2]/ul/li[3]/a
 
 Clicar no botão "${AddToCart}" do produto
     Click Link                              xpath=//a[@href="http://automationpractice.com/index.php?id_product=1&controller=product&search_query=t-shirt&results=1"]
