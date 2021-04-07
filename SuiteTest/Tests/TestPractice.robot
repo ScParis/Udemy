@@ -1,6 +1,7 @@
 ***Settings***
 Documentation       Caso de teste criado no modelo procedural
-Resource            ../Resources/Resource.robot
+#Resource            ../Resources/Resource.robot
+Resource            ../Resources/Resource copy.robot
 
 Test Setup          Abrir navegador
 Test Teardown       Fechar navegador
