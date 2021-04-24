@@ -12,14 +12,11 @@ ${browser}                      chrome
 
 ***Variable***
 
-&{PERSONAL_DATA}        first_name=${customer_firstname}      Last_name=Fernandes     email:
+#&{PERSONAL_DATA}        first_name=${customer_firstname}      Last_name=Fernandes     email:
 
 
 
 ***Keywords***
-
-
-
 
 #Setup e Teardown
 Abrir navegador
@@ -101,7 +98,7 @@ Preencher os campos obrigatórios
     Set Suite Variable    ${customer_firstname}
     
     
-    Input Text                              xpath=//input[@name="customer_firstname"]           ${PERSONAL_DATA.first_name} 
+    Input Text                              xpath=//input[@name="customer_firstname"]           ${customer_firstname} 
 
     
 

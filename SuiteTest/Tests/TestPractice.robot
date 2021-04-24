@@ -3,8 +3,9 @@ Documentation       Caso de teste criado no modelo procedural
 #Resource            ../Resources/Resource.robot
 Resource            ../Resources/Resource copy.robot
 
-Test Setup          Abrir navegador
-Test Teardown       Fechar navegador
+#Test Setup          Abrir navegador
+Suite Setup         Abrir navegador
+#Test Teardown       Fechar navegador
 
 ***Test Cases***
 Test Case #1: Pesquisar Produtos Existentes
