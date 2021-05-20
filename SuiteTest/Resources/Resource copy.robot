@@ -7,7 +7,7 @@ Library             FakerLibrary    locale=en_US
 ***Variables***
 
 ${url}                          http://automationpractice.com/
-${browser}                      chrome
+${browser}                      firefox
 
 
 ***Variable***
@@ -58,7 +58,9 @@ Clicar na sub categoria "${sub_category}"
     Mouse Down                              xpath=//*[@id="block_top_menu"]/ul/li[1]/ul/li[2]/ul/li[3]/a
 
 Clicar no botão "${AddToCart}" do produto
-    Click Link                              xpath=//a[@href="http://automationpractice.com/index.php?id_product=1&controller=product&search_query=t-shirt&results=1"]
+    # Click Link                              xpath=//a[@href="http://automationpractice.com/index.php?id_product=1&controller=product&search_query=t-shirt&results=1"]
+    
+    Click Element                           css=class="button ajax_add_to_cart_button btn btn-default"
     Wait Until Element Is Visible           xpath=//h1[contains(text(), "Faded Short Sleeve T-shirts")]
     Click Element                           name=Submit
     Wait Until Element Is Visible           xpath=//i[@class="icon-ok"]

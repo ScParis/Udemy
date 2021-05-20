@@ -5,7 +5,7 @@ Resource            ../Resources/Resource copy.robot
 
 #Test Setup          Abrir navegador
 Suite Setup         Abrir navegador
-#Test Teardown       Fechar navegador
+Suite Teardown       Fechar navegador
 
 ***Test Cases***
 Test Case #1: Pesquisar Produtos Existentes
