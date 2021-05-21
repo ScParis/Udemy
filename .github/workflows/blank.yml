@@ -1,0 +1,52 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI-Robot Udemy
+
+# Controls when the action will run. 
+on:
+  # Triggers the workflow on push or pull request events but only for the master-udemy branch
+  push:
+    branches: [ master-udemy ]
+  pull_request:
+    branches: [ master-udemy ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+    # Runs prepare machine
+      - name: Setup Dependencies
+        run: |
+            sudo apt-get install -y xvfb ca-certificates net-tools netcat gnupg ffmpeg libgtk-3-0 libgdk-pixbuf2.0-dev libxcomposite-dev libdbus-glib-1-2 libatk-bridge2.0-0 wget libgbm1 libnss3 libxss1 libasound2 
+      - name: Setup Node
+        run: |
+          curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+          sudo apt-get install -y nodejs
+      - name: Setup python
+        run: |
+          python -m pip install --upgrade pip
+      - name: Setup Requirements
+        run: |
+          pip install -r requirements.txt    
+      - name: Run Robot Init
+        run: |
+          rfbrowser init
+      - name: Run Robot Test
+        run: |
+          robot -d ./log SuiteTest/Tests/
+          
+      - name: Upload a Build Artifact Logs
+        uses: actions/upload-artifact@v2.2.3
+        with:
+          name: Robot Logs 
+          path: log/
+
