@@ -21,6 +21,8 @@ ${browser}                      firefox
 #Setup e Teardown
 Abrir navegador
     Open Browser            about:blank          ${browser}
+    ...   options=add_argument("--headless")
+
 
 
 Fechar navegador
@@ -60,7 +62,7 @@ Clicar na sub categoria "${sub_category}"
 Clicar no botão "${AddToCart}" do produto
     # Click Link                              xpath=//a[@href="http://automationpractice.com/index.php?id_product=1&controller=product&search_query=t-shirt&results=1"]
     
-    Click Element                           css=class="button ajax_add_to_cart_button btn btn-default"
+    Click Element                           xpath=//[@class="button ajax_add_to_cart_button btn btn-default"]
     Wait Until Element Is Visible           xpath=//h1[contains(text(), "Faded Short Sleeve T-shirts")]
     Click Element                           name=Submit
     Wait Until Element Is Visible           xpath=//i[@class="icon-ok"]
@@ -101,8 +103,6 @@ Preencher os campos obrigatórios
     
     
     Input Text                              xpath=//input[@name="customer_firstname"]           ${customer_firstname} 
-
-    
 
 
 Clicar em "${Register}" para finalizar o cadastro

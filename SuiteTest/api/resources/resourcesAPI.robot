@@ -3,7 +3,7 @@ Documentation           Documentação da API: https://fakerestapi.azurewebsites
 
 Library                 RequestsLibrary
 Library                 Collections
-
+# Library                 BuiltIn
 
 ***Variables***
 ${URL_API}                  https://fakerestapi.azurewebsites.net/api/v1
@@ -21,3 +21,8 @@ Requisitar todos os livros
 
     ${RESPOSTA}     GET On Session         fakeAPI     Books
     Log             ${RESPOSTA.text}
+
+# Conferir status code
+
+#     [Arguments]         ${STATUS_CODE}
+#     Should Be Equal As Strings          ${RESPOSTA.status_code}         ${STATUS_CODE}

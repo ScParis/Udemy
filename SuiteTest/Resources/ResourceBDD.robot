@@ -10,8 +10,8 @@ ${BROWSER}          chrome
 ***Keywords***
 #Setup e Teardown
 Abrir navegador
-    Open Browser            about:blank          ${BROWSER}
-
+    Open Browser            about:blank          ${browser}
+    ...   options=add_argument("--headless")
 
 Fechar navegador
     Close Browser

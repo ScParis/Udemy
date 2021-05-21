@@ -10,4 +10,6 @@ Suite Setup             Conectar a minha API
 Buscar a listagem de todos os livros (GET em todos os livros)
     
     Requisitar todos os livros
-    Conferir se retorna uma lista com 200 livros
+#    Conferir status code    200
+
+#    Conferir se retorna uma lista com 200 livros
