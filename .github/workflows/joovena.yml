@@ -6,9 +6,9 @@ name: Robot Joovena
 on:
   # Triggers the workflow on push or pull request events but only for the master-udemy branch
   push:
-    branches: [ master-udemy ]
+    branches: [ master ]
   pull_request:
-    branches: [ master-udemy ]
+    branches: [ master ]
 
 jobs:
     test:
