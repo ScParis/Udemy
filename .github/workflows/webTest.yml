@@ -42,23 +42,23 @@ jobs:
           rfbrowser init
       - name: Run Robot Test
         run: |
-          robot -d ./log SuiteTest/Tests/
+          robot -d ./log basic/SuiteTest/Tests/
 
-      - uses: actions/checkout@v2
+      # - uses: actions/checkout@v2
 
-      - uses: actions/download-artifact@v2
-        with:
-          name: my-artifact
-          path: path/to/artifact
+      # - uses: actions/download-artifact@v2
+      #   with:
+      #     name: my-artifact
+      #     path: path/to/artifact
 
-      - name: Display structure of downloaded files
-        run: ls -R
-        working-directory: path/to/artifact
+      # - name: Display structure of downloaded files
+      #   run: ls -R
+      #   working-directory: path/to/artifact
         
-      - uses: actions/download-artifact@v2
-        with:
-          name: my-artifact
-          path: ~/download/path
+      # - uses: actions/download-artifact@v2
+      #   with:
+      #     name: my-artifact
+      #     path: ~/download/path
 
       - name: Upload a Build Artifact Logs
         uses: actions/upload-artifact@v2.2.3

@@ -42,7 +42,7 @@ jobs:
           rfbrowser init
       - name: Run Robot Test
         run: |
-          robot -d ./log SuiteTest/api/
+          robot -d ./log basic/SuiteTest/api/
           
       - name: Upload a Build Artifact Logs
         uses: actions/upload-artifact@v2.2.3
