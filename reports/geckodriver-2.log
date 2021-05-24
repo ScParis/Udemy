@@ -1,0 +1,10 @@
+1621897579551	geckodriver	INFO	Listening on 127.0.0.1:48379
+1621897580560	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileJV5tpC"
+1621897581107	Marionette	INFO	Marionette enabled
+console.info: MINT: Trying to use the system region (based on LANG).
+console.info: MINT: System region is BR
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+console.info: MINT: Loading search-config defaults.
+1621897583260	Marionette	INFO	Listening on port 34435
+1621897583308	Marionette	WARN	TLS certificate errors will be ignored for this session
+1621897589554	Marionette	INFO	Stopped listening on port 34435
