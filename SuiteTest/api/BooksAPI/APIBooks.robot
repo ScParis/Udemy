@@ -39,6 +39,3 @@ Deletando um livro (DELETE de um livro)
     Deletando um livro: ID "400"
     Conferir status code            200
     Conferir o reason               OK
-    Requisitar o livro com ID: "400"
-    Conferir status code            404
-    Conferir o reason               Not Found
