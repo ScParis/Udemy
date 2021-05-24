@@ -1,17 +1,11 @@
-Robot Recursos/chromedriver_win32.zip
-Robot Recursos/geckodriver-v0.29.0-win64.zip
-Robot Recursos/python-3.9.2-amd64.exe
-SuiteTest/log/log.html
-SuiteTest/log/output.xml
-SuiteTest/log/report.html
-SuiteTest/log/selenium-screenshot-1.png
-SuiteTest/log/selenium-screenshot-2.png
+Robot Recursos/*
+SuiteTest/log/*
 .idea/misc.xml
 .idea/modules.xml
 .idea/Robot Framework.iml
 .idea/vcs.xml
 .vs/slnx.sqlite
-.idea/inspectionProfiles/profiles_settings.xml
+.idea/inspectionProfiles/*
 .vs/VSWorkspaceState.json
 .idea/*
 log/*
