@@ -20,11 +20,11 @@ Teste mais opções IN RANGE
 
 *** Keywords ***
 # ## NOVO FORMATO
-Velho formato do FOR de listas
-    :FOR    ${animal}    IN    gato    cachorro    cavalo
-    \    Log    O animal desse laço é: ${animal}!
-    \    Log    Vamos para o próximo animal da lista...
-
+# Velho formato do FOR de listas
+#     :FOR    ${animal}    IN    gato    cachorro    cavalo
+#     \    Log    O animal desse laço é: ${animal}!
+#     \    Log    Vamos para o próximo animal da lista...
+    #  DEPRECIED
 Novo formato do FOR de listas
     FOR    ${animal}    IN    gato    cachorro    cavalo
         Log    O animal desse laço é: ${animal}!
