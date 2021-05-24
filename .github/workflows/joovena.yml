@@ -19,14 +19,14 @@ jobs:
           uses: joonvena/robotframework-docker-action@v0.1
           env:
             BROWSER: chrome
-            ROBOT_TESTS_DIR: ${{ github.workspace }}/SuiteTest
-            ROBOT_REPORTS_DIR: ${{ github.workspace }}/log
+            ROBOT_TESTS_DIR: ${{ github.workspace }}/Robot-Fremawork/Robot-Fremawork/SuiteTest/Tests
+            ROBOT_REPORTS_DIR: ${{ github.workspace }}/Robot-Fremawork/Robot-Fremawork/log
         - name: Upload test results
           uses: actions/upload-artifact@v1
           if: always()
           with:
-            name: reports
-            path: ${{ github.workspace }}/log
+            name: log
+            path: ${{ github.workspace }}/Robot-Fremawork/Robot-Fremawork/log
 
     generate_report:
         if: always()
@@ -50,4 +50,4 @@ jobs:
             REPO_OWNER: ${{ env.REPOSITORY_OWNER }}
             COMMIT_SHA: ${{ github.sha }}
             REPOSITORY: ${{ env.REPOSITORY_NAME }}
-            REPORT_PATH: reports
+            REPORT_PATH: log
