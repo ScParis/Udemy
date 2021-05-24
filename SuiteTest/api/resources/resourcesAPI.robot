@@ -11,14 +11,14 @@ ${URL_API}              https://fakerestapi.azurewebsites.net/api/v1
 ...                     Title=Book 15
 ...                     PageCount=1500
 
-&{BOOK_POST}            id=201
+&{BOOK_201}             id=201
 ...                     title=API_BOOK
 ...                     description=Test POST a book
 ...                     pageCount=150
 ...                     excerpt=string
 ...                     publishDate=2021-05-24T00:10:32.091Z
 
-&{BOOK_PUT}             id=300
+&{BOOK_400}             id=400
 ...                     title=300 e um pouco mais
 ...                     description=string
 ...                     pageCount=300
@@ -47,22 +47,24 @@ Requisitar o livro com ID: "${ID_LIVRO}"
     Set Test Variable           ${RESPOSTA}
 
 Cadastro de um livro
-
+    
     ${HEADERS}       Create Dictionary           content-type=application/problem+json
-    ${RESPOSTA}      POST Request         fakeAPI     Books
-    ...                                     data={"id": 201,"title": "API_BOOK","description": "Test POST a book","pageCount": 150,"excerpt": "string","publishDate": "2021-05-24T00:10:32.091Z"}
-    ...                                     headers=${HEADERS}
-    Log                         ${RESPOSTA.text}
-    Set Test Variable           ${RESPOSTA}
+
+    ${RESPOSTA}    Post Request   fakeAPI    Books
+    ...                           data={"ID":${BOOK_201.id},"Title": "${BOOK_201.title}","Description": "${BOOK_201.description}","PageCount": ${BOOK_201.pageCount},"Excerpt": "${BOOK_201.excerpt}","PublishDate": "${BOOK_201.publishDate}"}
+    ...                           headers=${HEADERS}
+    Log            ${RESPOSTA.text}
+    Set Test Variable    ${RESPOSTA}
 
 Atualizando um livro com ID: "${ID_LIVRO}"
 
     ${HEADERS}       Create Dictionary           content-type=application/problem+json
-    ${RESPOSTA}     PUT On Session         fakeAPI     Books/${ID_LIVRO}
-    ...                                     data={"id": 300,"title": "300 e um pouco mais","description": "string","pageCount": 300,"excerpt": "string","publishDate": "2021-05-24T01:46:38.442Z"}
-    ...                                     headers=${HEADERS}
-    Log                         ${RESPOSTA.text}
-    Set Test Variable           ${RESPOSTA}
+
+    ${RESPOSTA}    Put Request    fakeAPI    Books/${ID_LIVRO}
+    ...                           data={"ID": ${BOOK_400.id},"Title": "${BOOK_400.title}","Description": "${BOOK_400.description}","PageCount": ${BOOK_400.pageCount},"Excerpt": "${BOOK_400.excerpt}","PublishDate": "${BOOK_400.publishDate}"}
+    ...                           headers=${HEADERS}
+    Log            ${RESPOSTA.text}
+    Set Test Variable    ${RESPOSTA}
 
 Deletando um livro: ID "${ID_LIVRO}"
 
@@ -97,20 +99,21 @@ Conferir se retorna todos os dados corretos do livro 15
     Should Not Be Empty                     ${RESPOSTA.json()["excerpt"]}
     Should Not Be Empty                     ${RESPOSTA.json()["publishDate"]}
 
-Conferir livro cadastrado
+Conferir se retorna todos os dados cadastrados do livro "${ID_LIVRO}"
+    Conferir livro    ${ID_LIVRO}
 
-    Dictionary Should Contain Item          ${RESPOSTA.json()}        id                ${BOOK_POST.id}
-    Dictionary Should Contain Item          ${RESPOSTA.json()}        title             ${BOOK_POST.title}
-    Dictionary Should Contain Item          ${RESPOSTA.json()}        description       ${BOOK_POST.description}
-    Dictionary Should Contain Item          ${RESPOSTA.json()}        pageCount         ${BOOK_POST.pageCount}
-    Dictionary Should Contain Item          ${RESPOSTA.json()}        excerpt           ${BOOK_POST.excerpt}
-    Dictionary Should Contain Item          ${RESPOSTA.json()}        publishDate       ${BOOK_POST.publishDate}
+Conferir se retorna todos os dados alterados do livro "${ID_LIVRO}"
+    Conferir livro    ${ID_LIVRO}
 
-Conferir livro atualizado
+Conferir livro
+    [Arguments]     ${ID_LIVRO}
+    Dictionary Should Contain Item    ${RESPOSTA.json()}    id              ${BOOK_${ID_LIVRO}.id}
+    Dictionary Should Contain Item    ${RESPOSTA.json()}    title           ${BOOK_${ID_LIVRO}.title}
+    Dictionary Should Contain Item    ${RESPOSTA.json()}    description     ${BOOK_${ID_LIVRO}.description}
+    Dictionary Should Contain Item    ${RESPOSTA.json()}    pageCount       ${BOOK_${ID_LIVRO}.pageCount}
+    Dictionary Should Contain Item    ${RESPOSTA.json()}    excerpt         ${BOOK_${ID_LIVRO}.excerpt}
+    Dictionary Should Contain Item    ${RESPOSTA.json()}    publishDate     ${BOOK_${ID_LIVRO}.publishDate}
 
-    Dictionary Should Contain Item          ${RESPOSTA.json()}        id                ${BOOK_PUT.id}
-    Dictionary Should Contain Item          ${RESPOSTA.json()}        title             ${BOOK_PUT.title}
-    Dictionary Should Contain Item          ${RESPOSTA.json()}        description       ${BOOK_PUT.description}
-    Dictionary Should Contain Item          ${RESPOSTA.json()}        pageCount         ${BOOK_PUT.pageCount}
-    Dictionary Should Contain Item          ${RESPOSTA.json()}        excerpt           ${BOOK_PUT.excerpt}
-    Dictionary Should Contain Item          ${RESPOSTA.json()}        publishDate       ${BOOK_PUT.publishDate}
+
+Conferir se o livro com ID "${ID_LIVRO}" foi excluído
+    BuiltIn.Should Be Empty         ${RESPOSTA.content}

@@ -25,17 +25,18 @@ Criar um livro (POST de um livro)
     Cadastro de um livro
     Conferir status code            200
     Conferir o reason               OK
-    Conferir livro cadastrado
+    Conferir se retorna todos os dados cadastrados do livro "201"
 
 Atualizando um livro (PUT de um livro)
     [Tags]          put
-    Atualizando um livro com ID: "300"
+    Atualizando um livro com ID: "400"
     Conferir status code            200
     Conferir o reason               OK
-    Conferir livro atualizado
+    Conferir se retorna todos os dados alterados do livro "400"
 
 Deletando um livro (DELETE de um livro)
     [Tags]          del
-    Deletando um livro: ID "400"
+    Deletando um livro: ID "500"
     Conferir status code            200
     Conferir o reason               OK
+    Conferir se o livro com ID "500" foi excluído
