@@ -1,0 +1,53 @@
+#Test with using robot docker
+
+name: Robot Joovena
+
+# Controls when the action will run. 
+on:
+  # Triggers the workflow on push or pull request events but only for the master-udemy branch
+  push:
+    branches: [ master-udemy ]
+  pull_request:
+    branches: [ master-udemy ]
+
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@v2
+        - name: Execute tests
+          uses: joonvena/robotframework-docker-action@v0.1
+          env:
+            BROWSER: chrome
+            ROBOT_TESTS_DIR: ${{ github.workspace }}/SuiteTest
+            ROBOT_REPORTS_DIR: ${{ github.workspace }}/log
+        - name: Upload test results
+          uses: actions/upload-artifact@v1
+          if: always()
+          with:
+            name: reports
+            path: ${{ github.workspace }}/log
+
+    generate_report:
+        if: always()
+        needs: [test] 
+        runs-on: ubuntu-latest
+        steps:
+        - name: Download reports
+          uses: actions/download-artifact@v1
+          with:
+            name: reports
+        - name: Get Repository Owner & Name
+          run: |
+            export OWNER="$(echo "${{ github.repository }}" | awk -F / '{print $1}' | sed -e "s/:refs//")"
+            export REPO="$(echo "${{ github.repository }}" | awk -F / '{print $2}' | sed -e "s/:refs//")"
+            echo "::set-env name=REPOSITORY_OWNER::$OWNER"
+            echo "::set-env name=REPOSITORY_NAME::$REPO"
+        - name: Send report to commit
+          uses: joonvena/robotframework-reporter-action@v0.1
+          env:
+            GH_ACCESS_TOKEN: ${{ secrets.TOKEN }}
+            REPO_OWNER: ${{ env.REPOSITORY_OWNER }}
+            COMMIT_SHA: ${{ github.sha }}
+            REPOSITORY: ${{ env.REPOSITORY_NAME }}
+            REPORT_PATH: reports
