@@ -2,28 +2,20 @@
 
 name: Basic - Robot Udemy - Web
 
-# Controls when the action will run. 
 on:
-  # Triggers the workflow on push or pull request events but only for the master-udemy branch
   push:
     branches: [ master-udemy ]
   pull_request:
     branches: [ master-udemy ]
 
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+  # build:
+  job1:
+    name: Setup Machine
     runs-on: ubuntu-latest
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-    # Runs prepare machine
       - name: Setup Dependencies
         run: |
             sudo apt-get install -y xvfb ca-certificates net-tools netcat gnupg ffmpeg libgtk-3-0 libgdk-pixbuf2.0-dev libxcomposite-dev libdbus-glib-1-2 libatk-bridge2.0-0 wget libgbm1 libnss3 libxss1 libasound2 
@@ -40,6 +32,12 @@ jobs:
       - name: Run Robot Init
         run: |
           rfbrowser init
+  job2:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    needs: job1
+    steps:
+
       - name: Run Robot Test
         run: |
           robot -d ./log basic/SuiteTest/Tests/
