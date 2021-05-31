@@ -1,0 +1,39 @@
+name: Expert - Robot Udemy
+
+on:
+  push:
+    branches: [ master-udemy ]
+  pull_request:
+    branches: [ master-udemy ]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Dependencies
+        run: |
+            sudo apt-get install -y xvfb ca-certificates net-tools netcat gnupg ffmpeg libgtk-3-0 libgdk-pixbuf2.0-dev libxcomposite-dev libdbus-glib-1-2 libatk-bridge2.0-0 wget libgbm1 libnss3 libxss1 libasound2 
+      - name: Setup Node
+        run: |
+          curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+          sudo apt-get install -y nodejs
+      - name: Setup python
+        run: |
+          python -m pip install --upgrade pip
+      - name: Setup Requirements
+        run: |
+          pip install -r requirements.txt    
+      - name: Run Robot Init
+        run: |
+          rfbrowser init
+      - name: Run Robot Test
+        run: |
+          robot -d ./log expert/
+          
+      - name: Upload a Build Artifact Logs
+        uses: actions/upload-artifact@v2.2.3
+        with:
+          name: Robot Logs 
+          path: log/
+
