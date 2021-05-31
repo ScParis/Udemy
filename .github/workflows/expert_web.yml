@@ -29,7 +29,9 @@ jobs:
           rfbrowser init
       - name: Run Robot Test
         run: |
-          robot -d ./log expert/
+          robot -d .log expert/date_time/
+          robot -d .log expert/for/
+#          robot -d .log expert/control/
           
       - name: Upload a Build Artifact Logs
         uses: actions/upload-artifact@v2.2.3
