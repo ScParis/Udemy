@@ -27,10 +27,16 @@ jobs:
       - name: Run Robot Init
         run: |
           rfbrowser init
-      - name: Run Robot Test
+      - name: Run DateTime Suite
         run: |
           robot -d .log expert/date_time/
+
+      - name: Run FOR Suite
+        run: |
           robot -d .log expert/for/
+
+      - name: Run Control Suite
+        run: |
 #          robot -d .log expert/control/
           
       - name: Upload a Build Artifact Logs
