@@ -9,7 +9,8 @@ Example 1: Taking the current date and time
     Test#2: Taking Current Date And Time
     Test#3: Taking Day, Month, Year Separately
     Test#4: Working With Time
-    Add Date Time
+    Test#5: Add Date Time
+    Test#6: Subtract Date To Time
 
 
 
@@ -41,10 +42,25 @@ Test#4: Working With Time
     ${HORA}     Convert Time        5400        verbose
     Log         5400 segundos é ${HORA}
 
-    ${HORA}     Convert Time        5500    timer        exclude_millis=yes
+    ${HORA}     Convert Time        5500        timer        exclude_millis=yes
     Log         5500 segundos é ${HORA}
 
-Add Date Time
-    ${ANTES}        Get Current Date
-    ${DEPOIS}       Add Time To date            ${ANTES}   4 horas      result_format=%d/%m/%Y  %H:%M:%S
-    Log             Antes: ${ANTES} - Depois: ${DEPOIS}
+Test#5: Add Date Time
+
+    ${ANTES}    Get Current Date
+    ${DEPOIS}   Add Time To Date    ${ANTES}   4 hours   result_format=%d-%m-%Y %H:%M:%S
+    Log         Antes: ${ANTES} - Depois: ${DEPOIS}
+
+    ${ANTES}    Get Current Date
+    ${DEPOIS}   Add Time To Date    ${ANTES}   7 days    result_format=%d-%m-%Y %H:%M:%S
+    Log         Antes: ${ANTES} - Depois: ${DEPOIS}
+
+Test#6: Subtract Date To Time
+
+    ${ANTES}    Get Current Date
+    ${DEPOIS}   Subtract Time From Date    ${ANTES}   25 minutes   result_format=%d-%m-%Y %H:%M:%S
+    Log         Antes: ${ANTES} - Depois: ${DEPOIS}
+    ${ANTES}    Get Current Date
+    ${DEPOIS}   Subtract Time From Date    ${ANTES}   7 days    result_format=%d-%m-%Y %H:%M:%S
+    Log         Antes: ${ANTES} - Depois: ${DEPOIS}
+
