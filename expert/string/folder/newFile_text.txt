@@ -1,0 +1,6 @@
+First line in file number 00!
+Secound line in file number 01!
+Third line in file number 02!
+Forth line in file number 03!
+Fifth line in file number 04!
+Sixth line in file number 05!
