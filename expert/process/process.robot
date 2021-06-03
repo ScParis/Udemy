@@ -11,8 +11,10 @@ Exemple 01: Open Program
 
 Exemple 02: Running and waiting for scripts/programs
     Run a script and wait until it finished with success
+    Run the process and wait for it to finish with failure
 
-
+Exemple 03: Running prompt commands
+    Running miscellaneous commands at the prompt
 
 
 ***Keywords***
@@ -48,3 +50,16 @@ Run a script and wait until it finished with success
     Log    Saída da execução: ${MEU_PROCESSO.stdout}
     Verify success in process execution      ${MEU_PROCESSO}
 
+Run the process and wait for it to finish with failure
+    ## Start the process and wait for it to finish
+    ${MEU_PROCESSO}     Run Process     python3   expert/process/hello_world.py
+    Log    Resultado da execução (sucesso/falha): ${MEU_PROCESSO.rc}
+    Log    Saída da execução: ${MEU_PROCESSO.stdout}
+    Log    Falha da execução: ${MEU_PROCESSO.stderr}
+    Verify success in process execution      ${MEU_PROCESSO}
+
+Running miscellaneous commands at the prompt
+    ## Use shell=True attribute to enable shell functions.
+    ## how to create a directory, for example
+
+    Run Process     mkdir Robot_Folder      cwd=${CURDIR}       shell=True
