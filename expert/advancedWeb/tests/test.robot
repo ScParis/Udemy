@@ -6,12 +6,13 @@ Resource            ../resources/PO/Home.robot
 Resource            ../resources/PO/Carrinho.robot
 Resource            ../resources/PO/login.robot
 
-Test Setup          Abrir navegador
-Test Teardown       Fechar navegador
+Suite Setup          Abrir navegador
+Suite Teardown       Fechar navegador
 
 
 ***Test Cases***
 Test Case #1: Pesquisar Produtos Existentes
+    
     Acessar a página home do site
     Adicionar o produto "t-shirt" no carrinho
     Excluir o produto do carrinho

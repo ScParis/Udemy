@@ -1,8 +1,6 @@
-psycopg2
 robotframework
 robotframework-browser
 robotframework-requests
-robotframework
 robotframework-databaselibrary
 robotframework-difflibrary
 robotframework-faker
