@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
 jobs:
   build:
-    name: Test
+    name: Test Ubuntu
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -35,23 +35,6 @@ jobs:
       - name: Run Robot Test
         run: |
           robot -d ./log basic/SuiteTest/Tests/
-
-      # - uses: actions/checkout@v2
-
-      # - uses: actions/download-artifact@v2
-      #   with:
-      #     name: my-artifact
-      #     path: path/to/artifact
-
-      # - name: Display structure of downloaded files
-      #   run: ls -R
-      #   working-directory: path/to/artifact
-        
-      # - uses: actions/download-artifact@v2
-      #   with:
-      #     name: my-artifact
-      #     path: ~/download/path
-
       - name: Upload a Build Artifact Logs
         uses: actions/upload-artifact@v2
         with:
@@ -62,5 +45,4 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: build.tgz
-          path: .
-
+          path: ./log
