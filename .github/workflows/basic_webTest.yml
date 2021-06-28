@@ -53,11 +53,14 @@ jobs:
       #     path: ~/download/path
 
       - name: Upload a Build Artifact Logs
-        uses: actions/upload-artifact@v2.2.3
-        run: | 
-          always
+        uses: actions/upload-artifact@v2
         with:
           name: Robot Logs 
           path: log/
 
+      - name: Download build artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: build.tgz
+          path: .
 
