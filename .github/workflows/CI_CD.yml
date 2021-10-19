@@ -1,0 +1,53 @@
+
+name: Automated Tests
+
+on:
+  workflow_dispatch:
+ push:
+   branches: [ master ]
+ pull_request:
+   branches: [ master ]
+
+
+jobs:
+  build:
+    name: Run Full Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Dependencies
+        run: |
+            sudo apt update
+            sudo apt install -y xvfb ca-certificates net-tools netcat gnupg ffmpeg libgtk-3-0 libgdk-pixbuf2.0-dev libxcomposite-dev libdbus-glib-1-2 libatk-bridge2.0-0 wget libgbm1 libnss3 libxss1 libasound2 
+      
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+      
+      - name: Setup MySQL Conncection
+        run: |
+          pip3 install mysql-connector-python
+
+      - name: Setup Requirements
+        run: |
+          pip3 install -r requirements.txt    
+      
+      - name: Run Robot Init
+        run: |
+          rfbrowser init
+      
+      - name: Run Test Suites
+        run: |
+           robot -d ./log -L trace -v headless:chromium -v browser:true front/tests/
+      
+      - name: Upload Logs
+        uses: actions/upload-artifact@v2.2.3
+        with:
+          path: ./log
