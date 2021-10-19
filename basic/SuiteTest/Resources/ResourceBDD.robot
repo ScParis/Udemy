@@ -37,3 +37,8 @@ Então a página deve exibir a mensagem "${MENSAGEM_ALERTA}"
     Wait Until Element Is Visible           xpath=//p[@class="alert alert-warning"]
     Element Text Should Be                  xpath=//p[@class="alert alert-warning"]         ${MENSAGEM_ALERTA}
     Close Browser
+
+Acessar a página home do site
+
+    Go To                                   ${URL} 
+    Title Should Be                         My Store
