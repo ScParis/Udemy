@@ -50,7 +50,7 @@ jobs:
       
       - name: Run Test Suites
         run: |
-           robot -d ./log -L trace -v headless:chromium -v browser:true front/tests/
+           robot -d ./log basic/SuiteTest/Tests/TestPracticeBDD.robot
       
       - name: Upload Logs
         uses: actions/upload-artifact@v2.2.3
