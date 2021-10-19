@@ -34,7 +34,7 @@ jobs:
           rfbrowser init
       - name: Run Robot Test
         run: |
-          robot -d ./log basic/SuiteTest/Tests/
+          robot -d ./log basic/SuiteTest/Tests/TestPracticeBDD.robot
 
       # - uses: actions/checkout@v2
 
