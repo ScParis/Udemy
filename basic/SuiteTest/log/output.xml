@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.0.3 (Python 3.8.10 on linux)" generated="20211019 08:23:53.483" rpa="false" schemaversion="2">
+<suite id="s1" name="TestPracticeBDD" source="/media/scherman/HD1/Cursos/Automação de teste/Robot-Fremawork/Robot-Fremawork/basic/SuiteTest/Tests/TestPracticeBDD.robot">
+<test id="s1-t1" name="Cenário #1: Search for valiable product">
+<kw name="Abrir navegador" library="ResourceBDD" type="SETUP">
+<msg timestamp="20211019 08:23:53.611" level="TRACE">Arguments: [  ]</msg>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>about:blank</arg>
+<arg>${browser}</arg>
+<arg>options=add_argument("--headless")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20211019 08:23:53.612" level="TRACE">Arguments: [ 'about:blank' | 'chrome' | options='add_argument("--headless")' ]</msg>
+<msg timestamp="20211019 08:23:53.612" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<msg timestamp="20211019 08:23:54.623" level="DEBUG">POST http://127.0.0.1:37665/session {"capabilities": {"firstMatch": [{}], "alwaysMatch": {"browserName": "chrome", "platformName": "any", "goog:chromeOptions": {"extensions": [], "args": ["--headless"]}}}, "desiredCapabilities": {"browserName": "chrome", "version": "", "platform": "ANY", "goog:chromeOptions": {"extensions": [], "args": ["--headless"]}}}</msg>
+<msg timestamp="20211019 08:23:54.624" level="DEBUG">Starting new HTTP connection (1): 127.0.0.1:37665</msg>
+<msg timestamp="20211019 08:23:55.067" level="DEBUG">http://127.0.0.1:37665 "POST /session HTTP/1.1" 200 755</msg>
+<msg timestamp="20211019 08:23:55.068" level="DEBUG">Finished Request</msg>
+<msg timestamp="20211019 08:23:55.068" level="DEBUG">POST http://127.0.0.1:37665/session/06eba38ad81d3b4f5728163cf529e14b/timeouts {"script": 5000}</msg>
+<msg timestamp="20211019 08:23:55.070" level="DEBUG">http://127.0.0.1:37665 "POST /session/06eba38ad81d3b4f5728163cf529e14b/timeouts HTTP/1.1" 200 14</msg>
+<msg timestamp="20211019 08:23:55.071" level="DEBUG">Finished Request</msg>
+<msg timestamp="20211019 08:23:55.072" level="DEBUG">POST http://127.0.0.1:37665/session/06eba38ad81d3b4f5728163cf529e14b/timeouts {"implicit": 0}</msg>
+<msg timestamp="20211019 08:23:55.073" level="DEBUG">http://127.0.0.1:37665 "POST /session/06eba38ad81d3b4f5728163cf529e14b/timeouts HTTP/1.1" 200 14</msg>
+<msg timestamp="20211019 08:23:55.073" level="DEBUG">Finished Request</msg>
+<msg timestamp="20211019 08:23:55.074" level="DEBUG">POST http://127.0.0.1:37665/session/06eba38ad81d3b4f5728163cf529e14b/url {"url": "about:blank"}</msg>
+<msg timestamp="20211019 08:23:55.095" level="DEBUG">http://127.0.0.1:37665 "POST /session/06eba38ad81d3b4f5728163cf529e14b/url HTTP/1.1" 200 14</msg>
+<msg timestamp="20211019 08:23:55.095" level="DEBUG">Finished Request</msg>
+<msg timestamp="20211019 08:23:55.095" level="DEBUG">Opened browser with session id 06eba38ad81d3b4f5728163cf529e14b.</msg>
+<msg timestamp="20211019 08:23:55.095" level="TRACE">Return: 1</msg>
+<status status="PASS" starttime="20211019 08:23:53.612" endtime="20211019 08:23:55.096"/>
+</kw>
+<msg timestamp="20211019 08:23:55.096" level="TRACE">Return: None</msg>
+<status status="PASS" starttime="20211019 08:23:53.611" endtime="20211019 08:23:55.096"/>
+</kw>
+<kw name="Dado que estou na página home do site">
+<msg timestamp="20211019 08:23:55.097" level="TRACE">Arguments: [  ]</msg>
+<kw name="Acessar a página home do site">
+<msg timestamp="20211019 08:23:55.105" level="FAIL">No keyword with name 'Acessar a página home do site' found.</msg>
+<status status="FAIL" starttime="20211019 08:23:55.105" endtime="20211019 08:23:55.105"/>
+</kw>
+<status status="FAIL" starttime="20211019 08:23:55.097" endtime="20211019 08:23:55.105"/>
+</kw>
+<kw name="Quando eu pesquisar pelo produto &quot;Blouse&quot; no campo de pesquisa" sourcename="Quando eu pesquisar pelo produto &quot;${PRODUTO}&quot; no campo de pesquisa">
+<status status="NOT RUN" starttime="20211019 08:23:55.106" endtime="20211019 08:23:55.106"/>
+</kw>
+<kw name="Então o produto &quot;Blouse&quot; deve ser listado na página de resultados de busca" sourcename="Então o produto &quot;${PRODUTO}&quot; deve ser listado na página de resultados de busca">
+<status status="NOT RUN" starttime="20211019 08:23:55.106" endtime="20211019 08:23:55.106"/>
+</kw>
+<kw name="Fechar navegador" library="ResourceBDD" type="TEARDOWN">
+<msg timestamp="20211019 08:23:55.107" level="TRACE">Arguments: [  ]</msg>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<msg timestamp="20211019 08:23:55.108" level="TRACE">Arguments: [  ]</msg>
+<msg timestamp="20211019 08:23:55.108" level="DEBUG">Closing browser with session id 06eba38ad81d3b4f5728163cf529e14b.</msg>
+<msg timestamp="20211019 08:23:55.108" level="DEBUG">DELETE http://127.0.0.1:37665/session/06eba38ad81d3b4f5728163cf529e14b {}</msg>
+<msg timestamp="20211019 08:23:55.160" level="DEBUG">http://127.0.0.1:37665 "DELETE /session/06eba38ad81d3b4f5728163cf529e14b HTTP/1.1" 200 14</msg>
+<msg timestamp="20211019 08:23:55.160" level="DEBUG">Finished Request</msg>
+<msg timestamp="20211019 08:23:55.162" level="TRACE">Return: None</msg>
+<status status="PASS" starttime="20211019 08:23:55.108" endtime="20211019 08:23:55.162"/>
+</kw>
+<msg timestamp="20211019 08:23:55.162" level="TRACE">Return: None</msg>
+<status status="PASS" starttime="20211019 08:23:55.107" endtime="20211019 08:23:55.162"/>
+</kw>
+<status status="FAIL" starttime="20211019 08:23:53.610" endtime="20211019 08:23:55.163">No keyword with name 'Acessar a página home do site' found.</status>
+</test>
+<test id="s1-t2" name="Cenário #2: Search for unvaliable product">
+<kw name="Abrir navegador" library="ResourceBDD" type="SETUP">
+<msg timestamp="20211019 08:23:55.165" level="TRACE">Arguments: [  ]</msg>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>about:blank</arg>
+<arg>${browser}</arg>
+<arg>options=add_argument("--headless")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20211019 08:23:55.165" level="TRACE">Arguments: [ 'about:blank' | 'chrome' | options='add_argument("--headless")' ]</msg>
+<msg timestamp="20211019 08:23:55.165" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<msg timestamp="20211019 08:23:56.171" level="DEBUG">POST http://127.0.0.1:52777/session {"capabilities": {"firstMatch": [{}], "alwaysMatch": {"browserName": "chrome", "platformName": "any", "goog:chromeOptions": {"extensions": [], "args": ["--headless"]}}}, "desiredCapabilities": {"browserName": "chrome", "version": "", "platform": "ANY", "goog:chromeOptions": {"extensions": [], "args": ["--headless"]}}}</msg>
+<msg timestamp="20211019 08:23:56.173" level="DEBUG">Starting new HTTP connection (1): 127.0.0.1:52777</msg>
+<msg timestamp="20211019 08:23:56.624" level="DEBUG">http://127.0.0.1:52777 "POST /session HTTP/1.1" 200 755</msg>
+<msg timestamp="20211019 08:23:56.625" level="DEBUG">Finished Request</msg>
+<msg timestamp="20211019 08:23:56.625" level="DEBUG">POST http://127.0.0.1:52777/session/29a02ca5c93fa4c353d96f8f4ebb828e/timeouts {"script": 5000}</msg>
+<msg timestamp="20211019 08:23:56.628" level="DEBUG">http://127.0.0.1:52777 "POST /session/29a02ca5c93fa4c353d96f8f4ebb828e/timeouts HTTP/1.1" 200 14</msg>
+<msg timestamp="20211019 08:23:56.628" level="DEBUG">Finished Request</msg>
+<msg timestamp="20211019 08:23:56.629" level="DEBUG">POST http://127.0.0.1:52777/session/29a02ca5c93fa4c353d96f8f4ebb828e/timeouts {"implicit": 0}</msg>
+<msg timestamp="20211019 08:23:56.632" level="DEBUG">http://127.0.0.1:52777 "POST /session/29a02ca5c93fa4c353d96f8f4ebb828e/timeouts HTTP/1.1" 200 14</msg>
+<msg timestamp="20211019 08:23:56.633" level="DEBUG">Finished Request</msg>
+<msg timestamp="20211019 08:23:56.633" level="DEBUG">POST http://127.0.0.1:52777/session/29a02ca5c93fa4c353d96f8f4ebb828e/url {"url": "about:blank"}</msg>
+<msg timestamp="20211019 08:23:56.651" level="DEBUG">http://127.0.0.1:52777 "POST /session/29a02ca5c93fa4c353d96f8f4ebb828e/url HTTP/1.1" 200 14</msg>
+<msg timestamp="20211019 08:23:56.651" level="DEBUG">Finished Request</msg>
+<msg timestamp="20211019 08:23:56.651" level="DEBUG">Opened browser with session id 29a02ca5c93fa4c353d96f8f4ebb828e.</msg>
+<msg timestamp="20211019 08:23:56.651" level="TRACE">Return: 2</msg>
+<status status="PASS" starttime="20211019 08:23:55.165" endtime="20211019 08:23:56.651"/>
+</kw>
+<msg timestamp="20211019 08:23:56.652" level="TRACE">Return: None</msg>
+<status status="PASS" starttime="20211019 08:23:55.164" endtime="20211019 08:23:56.652"/>
+</kw>
+<kw name="Dado que estou na página home do site">
+<msg timestamp="20211019 08:23:56.653" level="TRACE">Arguments: [  ]</msg>
+<kw name="Acessar a página home do site">
+<msg timestamp="20211019 08:23:56.660" level="FAIL">No keyword with name 'Acessar a página home do site' found.</msg>
+<status status="FAIL" starttime="20211019 08:23:56.660" endtime="20211019 08:23:56.661"/>
+</kw>
+<status status="FAIL" starttime="20211019 08:23:56.652" endtime="20211019 08:23:56.661"/>
+</kw>
+<kw name="Quando eu pesquisar pelo produto &quot;ItemNãoExistente&quot; no campo de pesquisa" sourcename="Quando eu pesquisar pelo produto &quot;${PRODUTO}&quot; no campo de pesquisa">
+<status status="NOT RUN" starttime="20211019 08:23:56.661" endtime="20211019 08:23:56.662"/>
+</kw>
+<kw name="Então a página deve exibir a mensagem &quot;No results were found for your search &quot;ItemNãoExistente&quot;&quot;" sourcename="Então a página deve exibir a mensagem &quot;${MENSAGEM_ALERTA}&quot;">
+<status status="NOT RUN" starttime="20211019 08:23:56.662" endtime="20211019 08:23:56.662"/>
+</kw>
+<kw name="Fechar navegador" library="ResourceBDD" type="TEARDOWN">
+<msg timestamp="20211019 08:23:56.663" level="TRACE">Arguments: [  ]</msg>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<msg timestamp="20211019 08:23:56.664" level="TRACE">Arguments: [  ]</msg>
+<msg timestamp="20211019 08:23:56.664" level="DEBUG">Closing browser with session id 29a02ca5c93fa4c353d96f8f4ebb828e.</msg>
+<msg timestamp="20211019 08:23:56.664" level="DEBUG">DELETE http://127.0.0.1:52777/session/29a02ca5c93fa4c353d96f8f4ebb828e {}</msg>
+<msg timestamp="20211019 08:23:56.716" level="DEBUG">http://127.0.0.1:52777 "DELETE /session/29a02ca5c93fa4c353d96f8f4ebb828e HTTP/1.1" 200 14</msg>
+<msg timestamp="20211019 08:23:56.716" level="DEBUG">Finished Request</msg>
+<msg timestamp="20211019 08:23:56.718" level="TRACE">Return: None</msg>
+<status status="PASS" starttime="20211019 08:23:56.663" endtime="20211019 08:23:56.718"/>
+</kw>
+<msg timestamp="20211019 08:23:56.718" level="TRACE">Return: None</msg>
+<status status="PASS" starttime="20211019 08:23:56.663" endtime="20211019 08:23:56.718"/>
+</kw>
+<status status="FAIL" starttime="20211019 08:23:55.164" endtime="20211019 08:23:56.718">No keyword with name 'Acessar a página home do site' found.</status>
+</test>
+<doc>Caso de teste criado no modelo BDD</doc>
+<status status="FAIL" starttime="20211019 08:23:53.484" endtime="20211019 08:23:56.720"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="2" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="2" skip="0" id="s1" name="TestPracticeBDD">TestPracticeBDD</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
