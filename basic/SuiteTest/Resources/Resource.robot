@@ -18,8 +18,6 @@ Abrir navegador
     ...   options=add_argument("--headless")
 
 
-
-
 Fechar navegador
     Close Browser
 

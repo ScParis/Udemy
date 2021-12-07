@@ -1,11 +1,10 @@
 *** Settings ***
-Library    SeleniumLibrary
-Library    Browser
+Library    SeleniumLibrary 
 
 # Test Teardown       Take Screenshot
 *** Variables ***
 ${BROWSER}      chrome
-${URL}          http://automationpractice.com
+${URL}          https://www.amazon.com.br/
 
 *** Keywords ***
 #### Setup e Teardown
